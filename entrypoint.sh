@@ -13,3 +13,6 @@ chmod -R a+rw .
 
 sudo --set-home -u builder yay -S --noconfirm --needed --asdeps "${makedepends[@]}" "${depends[@]}"
 sudo --set-home -u builder CARCH=aarch64 makepkg -sfA
+
+cd $pkgname
+echo ::set-output name=filelist::$(sudo --set-home -u builder makepkg --packagelist | xargs)

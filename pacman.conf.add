@@ -4,7 +4,3 @@ Include = /etc/pacman.d/mirrorlist
 
 [archlinuxcn]
 Server = https://repo.archlinuxcn.org/x86_64
-
-[Clansty]
-SigLevel = Never
-Server = https://dl.lwqwq.com/repo/x86_64
