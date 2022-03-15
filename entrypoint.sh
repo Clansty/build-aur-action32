@@ -9,7 +9,9 @@ echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 echo 'PACKAGER="Clansty <i@gao4.pw>"
 COMPRESSZST=(zstd -19 -c -z -q --threads=0 -)' > /home/builder/.makepkg.conf
 
-git clone https://aur.archlinux.org/$pkgname.git
+if [[ $str == h* ]];then
+  git clone https://aur.archlinux.org/$pkgname.git
+fi # 否则为本地包
 cd $pkgname
 source PKGBUILD
 
