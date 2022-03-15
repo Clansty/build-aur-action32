@@ -7,7 +7,7 @@ WORKDIR /tmp
 COPY pacman.conf /etc/pacman.conf
 
 RUN pacman-key --init
-RUN pacman -Syu --noconfirm base-devel git yay nodejs-lts-gallium jdk11-openjdk go
+RUN pacman -Syu --noconfirm base-devel git nodejs-lts-gallium jdk11-openjdk go
 
 
 
