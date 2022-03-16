@@ -21,7 +21,7 @@ if [[ ${arch[@]/pentium4/} != ${arch[@]} ]];then
   ARCH='pentium4'
 fi
 
-for pkg in (${makedepends[@]} ${depends[*]});do
+for pkg in ${makedepends[@]} ${depends[@]} ;do
   sudo --set-home -u builder yay -S --noconfirm --nouseask --needed --asdeps --overwrite='*' $pkg
 done
 sudo --set-home -u builder CARCH=$ARCH makepkg -sfA --skipinteg --nodeps
