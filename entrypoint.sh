@@ -21,6 +21,8 @@ if [[ ${arch[@]/pentium4/} != ${arch[@]} ]];then
   ARCH='pentium4'
 fi
 
-sudo --set-home -u builder yay -S --noconfirm --useask --needed --asdeps --overwrite='*' "${makedepends[@]}" "${depends[@]}"
+for pkg in (${makedepends[@]} ${depends[*]});do
+  sudo --set-home -u builder yay -S --noconfirm --nouseask --needed --asdeps --overwrite='*' $pkg
+done
 sudo --set-home -u builder CARCH=$ARCH makepkg -sfA --skipinteg --nodeps
 echo ::set-output name=filelist::$(sudo --set-home -u builder CARCH=$ARCH makepkg --packagelist | xargs)
